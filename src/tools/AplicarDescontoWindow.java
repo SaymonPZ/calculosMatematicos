@@ -12,10 +12,12 @@ public class AplicarDescontoWindow extends JFrame {
     private JTextField txtPercentual;
     private JTextField txtResultado;
 
+    //metodo para iniciar a tela
     public static void iniciar() {
         new AplicarDescontoWindow();
     }
 
+    //cria a tela e chama o metodo que cria e exib os componentes
     private AplicarDescontoWindow() {
         setTitle("Aplicar Desconto");
         setSize(320, 230);
@@ -82,8 +84,10 @@ public class AplicarDescontoWindow extends JFrame {
             return;
         }
 
+        //envia o valor e o percentual para o metodo que calcula o desconto em Utils e armazena em resultado
         double resultado = Utils.aplicarDesconto(valor, percentual);
 
+        //exibe o resultado
         txtResultado.setText(String.format("%.2f", resultado));
     }
 
