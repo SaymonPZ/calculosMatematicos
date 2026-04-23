@@ -1,5 +1,7 @@
 package tools;
 
+import utils.Utils;
+
 import javax.swing.*;
 
 public class AmostragemPorcetagem extends JFrame {

@@ -28,14 +28,14 @@ public class HubWindow extends JFrame {
 
         // Botões
         painel.add(criarBotao("Calculadora de Desconto", () -> AplicarDescontoWindow.iniciar()));
-        painel.add(criarBotao("Incrementar %", () -> Amostragem2.iniciar()));
-        painel.add(criarBotao("X% de Y", () -> PercentualDeWindow.iniciar()));
-        painel.add(criarBotao("X representa Y", () -> RepresentaWindow.iniciar()));
+        painel.add(criarBotao("Incrementar %", () -> Amostragem2Windows.iniciar()));
+        painel.add(criarBotao("X% de Y", () -> ABDescontoWindows.iniciar()));
+        painel.add(criarBotao("X representa Y", () -> DeltaWindows.iniciar()));
         painel.add(criarBotao("Desconto por diferença", () -> AmostragemPorcetagem.iniciar()));
         painel.add(criarBotao("Variação Delta", () -> IncrementarPorcetagem.iniciar()));
         painel.add(criarBotao("Valor Original", () -> ValorOriginalWindow.iniciar()));
         painel.add(criarBotao("Regra de 3", () -> RegraDeTresWindow.iniciar()));
-        painel.add(criarBotao("Gerador de Senha", () -> SenhaWindow.iniciar()));
+        painel.add(criarBotao("Gerador de Senha", () -> GeradorSenhaWindow.iniciar()));
 
         add(painel);
     }
