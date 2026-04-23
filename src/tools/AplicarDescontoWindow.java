@@ -50,18 +50,18 @@ public class AplicarDescontoWindow extends JFrame {
         aplicarFiltroNumerico(txtPercentual);
         add(txtPercentual);
 
-        JButton btnCalcular = new JButton("Calcular");
-        btnCalcular.setBounds(120, 100, 150, 25);
-        add(btnCalcular);
-
         JLabel lblResultado = new JLabel("Resultado:");
-        lblResultado.setBounds(10, 140, 100, 25);
+        lblResultado.setBounds(10, 100, 100, 25);
         add(lblResultado);
 
         txtResultado = new JTextField();
-        txtResultado.setBounds(120, 140, 150, 25);
+        txtResultado.setBounds(120, 100, 150, 25);
         txtResultado.setEditable(false);
         add(txtResultado);
+
+        JButton btnCalcular = new JButton("Calcular");
+        btnCalcular.setBounds(120, 140, 150, 25);
+        add(btnCalcular);
 
         btnCalcular.addActionListener(e -> calcular());
     }
