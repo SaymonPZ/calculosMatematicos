@@ -5,19 +5,19 @@ import utils.Utils;
 import javax.swing.*;
 import javax.swing.text.*;
 
-public class ValorOriginalWindow extends JFrame {
+public class AmostragemPorcentagemWindow extends JFrame {
 
-    private JTextField txtValorComDesconto;
+    private JTextField txtTotal;
     private JTextField txtPercentual;
     private JTextField txtResultado;
 
     public static void iniciar() {
-        new ValorOriginalWindow();
+        new AmostragemPorcentagemWindow();
     }
 
-    private ValorOriginalWindow() {
-        setTitle("Calcular Valor Original");
-        setSize(340, 230);
+    private AmostragemPorcentagemWindow() {
+        setTitle("Amostragem de Porcentagem");
+        setSize(320, 230);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -29,34 +29,34 @@ public class ValorOriginalWindow extends JFrame {
 
     private void criarComponentes() {
 
-        JLabel lblValor = new JLabel("Valor c/ desconto:");
-        lblValor.setBounds(10, 20, 130, 25);
-        add(lblValor);
+        JLabel lblTotal = new JLabel("Total:");
+        lblTotal.setBounds(10, 20, 100, 25);
+        add(lblTotal);
 
-        txtValorComDesconto = new JTextField();
-        txtValorComDesconto.setBounds(150, 20, 150, 25);
-        aplicarFiltroNumerico(txtValorComDesconto);
-        add(txtValorComDesconto);
+        txtTotal = new JTextField();
+        txtTotal.setBounds(120, 20, 150, 25);
+        aplicarFiltroNumerico(txtTotal);
+        add(txtTotal);
 
-        JLabel lblPercentual = new JLabel("Desconto %:");
-        lblPercentual.setBounds(10, 60, 130, 25);
+        JLabel lblPercentual = new JLabel("%:");
+        lblPercentual.setBounds(10, 60, 100, 25);
         add(lblPercentual);
 
         txtPercentual = new JTextField();
-        txtPercentual.setBounds(150, 60, 150, 25);
+        txtPercentual.setBounds(120, 60, 150, 25);
         aplicarFiltroNumerico(txtPercentual);
         add(txtPercentual);
 
         JButton btnCalcular = new JButton("Calcular");
-        btnCalcular.setBounds(150, 100, 150, 25);
+        btnCalcular.setBounds(120, 100, 150, 25);
         add(btnCalcular);
 
-        JLabel lblResultado = new JLabel("Valor original:");
-        lblResultado.setBounds(10, 140, 130, 25);
+        JLabel lblResultado = new JLabel("Corresponde a:");
+        lblResultado.setBounds(10, 140, 110, 25);
         add(lblResultado);
 
         txtResultado = new JTextField();
-        txtResultado.setBounds(150, 140, 150, 25);
+        txtResultado.setBounds(120, 140, 150, 25);
         txtResultado.setEditable(false);
         add(txtResultado);
 
@@ -65,28 +65,21 @@ public class ValorOriginalWindow extends JFrame {
 
     private void calcular() {
 
-        String valorTexto = txtValorComDesconto.getText();
+        String totalTexto = txtTotal.getText();
         String percentualTexto = txtPercentual.getText();
 
-        if (valorTexto.isEmpty() || percentualTexto.isEmpty()) {
+        if (totalTexto.isEmpty() || percentualTexto.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Preencha todos os campos");
             return;
         }
 
-        double valor = Double.parseDouble(valorTexto);
+        double total = Double.parseDouble(totalTexto);
         double percentual = Double.parseDouble(percentualTexto);
 
-        if (percentual >= 100) {
-            JOptionPane.showMessageDialog(null, "Desconto deve ser menor que 100%");
-            return;
-        }
-
-        double resultado = Utils.calcularValorOriginal(valor, percentual);
+        double resultado = Utils.calcularPorcentagem(total, percentual);
 
         txtResultado.setText(String.format("%.2f", resultado));
     }
-
-    // 🔒 Filtro numérico
     private void aplicarFiltroNumerico(JTextField campo) {
         ((AbstractDocument) campo.getDocument()).setDocumentFilter(new DocumentFilter() {
 
