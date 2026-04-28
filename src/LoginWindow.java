@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class LoginWindow extends JFrame {
@@ -14,38 +15,57 @@ public class LoginWindow extends JFrame {
 
     private LoginWindow() {
         setSize(300, 220);
+
         setTitle("Login do Sistema");
         setLayout(null);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("icons/icon.png"));
+        setIconImage(icon.getImage());
+
+        getContentPane().setBackground(new Color(30, 30, 30));
+
         criarComponentes();
         carregarUsuario();
 
         setVisible(true);
+
     }
 
     private void criarComponentes() {
 
         JLabel lblUsuario = new JLabel("Usuário:");
+
         lblUsuario.setBounds(10, 30, 70, 25);
+        lblUsuario.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lblUsuario.setForeground(Color.WHITE);
         add(lblUsuario);
 
         txtUsuario = new JTextField();
         txtUsuario.setBounds(80, 30, 180, 25);
+        txtUsuario.setBackground(new Color(30, 30, 30));
+        txtUsuario.setForeground(Color.WHITE);
         add(txtUsuario);
 
         JLabel lblSenha = new JLabel("Senha:");
         lblSenha.setBounds(10, 60, 70, 25);
+        lblSenha.setFont(new Font("Tahoma", Font.BOLD, 12));
+        lblSenha.setForeground(Color.WHITE);
         add(lblSenha);
 
         txtSenha = new JPasswordField();
         txtSenha.setBounds(80, 60, 180, 25);
+        txtSenha.setBackground(new Color(30, 30, 30));
+        txtSenha.setForeground(Color.WHITE);
         add(txtSenha);
 
         chkLembrar = new JCheckBox("Lembrar usuário");
         chkLembrar.setBounds(80, 90, 180, 25);
+        chkLembrar.setFont(new Font("Tahoma", Font.BOLD, 12));
+        chkLembrar.setForeground(Color.WHITE);
+        chkLembrar.setBackground(new Color(30, 30, 30));
         add(chkLembrar);
 
         btnEntrar = new JButton(new AbstractAction("ENTRAR") {
@@ -55,7 +75,10 @@ public class LoginWindow extends JFrame {
             }
         });
 
-        btnEntrar.setBounds(180, 120, 80, 25);
+        btnEntrar.setBounds(160, 120, 100, 25);
+        btnEntrar.setFont(new Font("Tahoma", Font.BOLD, 12));
+        btnEntrar.setBackground(new Color(30, 30, 30));
+        btnEntrar.setForeground(Color.WHITE);
         add(btnEntrar);
     }
 

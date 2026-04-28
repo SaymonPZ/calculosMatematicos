@@ -22,6 +22,9 @@ public class AmostragemPorcentagemWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("/icons/icon.png"));
+        setIconImage(icon.getImage());
+
         criarComponentes();
 
         setVisible(true);
@@ -48,15 +51,15 @@ public class AmostragemPorcentagemWindow extends JFrame {
         add(txtPercentual);
 
         JButton btnCalcular = new JButton("Calcular");
-        btnCalcular.setBounds(120, 100, 150, 25);
+        btnCalcular.setBounds(120, 140, 150, 25);
         add(btnCalcular);
 
         JLabel lblResultado = new JLabel("Corresponde a:");
-        lblResultado.setBounds(10, 140, 110, 25);
+        lblResultado.setBounds(10, 100, 110, 25);
         add(lblResultado);
 
         txtResultado = new JTextField();
-        txtResultado.setBounds(120, 140, 150, 25);
+        txtResultado.setBounds(120, 100, 150, 25);
         txtResultado.setEditable(false);
         add(txtResultado);
 

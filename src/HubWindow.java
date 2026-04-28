@@ -17,6 +17,9 @@ public class HubWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("icons/icon.png"));
+        setIconImage(icon.getImage());
+
         criarComponentes();
 
         setVisible(true);

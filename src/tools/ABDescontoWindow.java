@@ -22,6 +22,9 @@ public class ABDescontoWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("/icons/icon.png"));
+        setIconImage(icon.getImage());
+
         criarComponentes();
 
         setVisible(true);
@@ -48,15 +51,15 @@ public class ABDescontoWindow extends JFrame {
         add(txtPago);
 
         JButton btnCalcular = new JButton("Calcular");
-        btnCalcular.setBounds(130, 100, 140, 25);
+        btnCalcular.setBounds(130, 140, 140, 25);
         add(btnCalcular);
 
         JLabel lblResultado = new JLabel("Desconto %:");
-        lblResultado.setBounds(10, 140, 110, 25);
+        lblResultado.setBounds(10, 100, 110, 25);
         add(lblResultado);
 
         txtResultado = new JTextField();
-        txtResultado.setBounds(130, 140, 140, 25);
+        txtResultado.setBounds(130, 100, 140, 25);
         txtResultado.setEditable(false);
         add(txtResultado);
 

@@ -23,6 +23,9 @@ public class RegraDeTresWindow extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
+        ImageIcon icon = new ImageIcon(this.getClass().getResource("/icons/icon.png"));
+        setIconImage(icon.getImage());
+
         criarComponentes();
 
         setVisible(true);
@@ -98,7 +101,6 @@ public class RegraDeTresWindow extends JFrame {
         txtR2.setText(String.format("%.2f", r2));
     }
 
-    // 🔒 Filtro numérico padrão
     private void aplicarFiltroNumerico(JTextField campo) {
         ((AbstractDocument) campo.getDocument()).setDocumentFilter(new DocumentFilter() {
 
