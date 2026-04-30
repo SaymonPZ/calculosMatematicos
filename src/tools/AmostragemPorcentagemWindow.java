@@ -1,5 +1,6 @@
 package tools;
 
+import helper.UtilsUI;
 import utils.Utils;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public class AmostragemPorcentagemWindow extends JFrame {
 
     private AmostragemPorcentagemWindow() {
         setTitle("Amostragem de Porcentagem");
-        setSize(320, 230);
+        setSize(320, 300);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -32,7 +33,7 @@ public class AmostragemPorcentagemWindow extends JFrame {
 
     private void criarComponentes() {
 
-        JLabel lblTotal = new JLabel("Total:");
+        JLabel lblTotal = new JLabel("Total (a):");
         lblTotal.setBounds(10, 20, 100, 25);
         add(lblTotal);
 
@@ -41,7 +42,7 @@ public class AmostragemPorcentagemWindow extends JFrame {
         aplicarFiltroNumerico(txtTotal);
         add(txtTotal);
 
-        JLabel lblPercentual = new JLabel("%:");
+        JLabel lblPercentual = new JLabel("Porcentagem (b):");
         lblPercentual.setBounds(10, 60, 100, 25);
         add(lblPercentual);
 
@@ -64,6 +65,14 @@ public class AmostragemPorcentagemWindow extends JFrame {
         add(txtResultado);
 
         btnCalcular.addActionListener(e -> calcular());
+
+        JLabel lblFormula = UtilsUI.criarLabelFormula(
+                " v = (a * b) / 100"
+        );
+
+        lblFormula.setBounds(10, 200, 280, 40);
+
+        add(lblFormula);
     }
 
     private void calcular() {

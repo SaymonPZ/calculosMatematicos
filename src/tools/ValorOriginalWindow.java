@@ -1,5 +1,6 @@
 package tools;
 
+import helper.UtilsUI;
 import utils.Utils;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public class ValorOriginalWindow extends JFrame {
 
     private ValorOriginalWindow() {
         setTitle("Calcular Valor Original");
-        setSize(340, 230);
+        setSize(340, 300);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -32,7 +33,7 @@ public class ValorOriginalWindow extends JFrame {
 
     private void criarComponentes() {
 
-        JLabel lblValor = new JLabel("Valor c/ desconto:");
+        JLabel lblValor = new JLabel("Valor c/ desconto (a):");
         lblValor.setBounds(10, 20, 130, 25);
         add(lblValor);
 
@@ -41,7 +42,7 @@ public class ValorOriginalWindow extends JFrame {
         aplicarFiltroNumerico(txtValorComDesconto);
         add(txtValorComDesconto);
 
-        JLabel lblPercentual = new JLabel("Desconto %:");
+        JLabel lblPercentual = new JLabel("Desconto % (b):");
         lblPercentual.setBounds(10, 60, 130, 25);
         add(lblPercentual);
 
@@ -64,6 +65,14 @@ public class ValorOriginalWindow extends JFrame {
         add(txtResultado);
 
         btnCalcular.addActionListener(e -> calcular());
+
+        JLabel lblFormula = UtilsUI.criarLabelFormula(
+                " v = (a * 100 / (100 - b))"
+        );
+
+        lblFormula.setBounds(10, 200, 280, 40);
+
+        add(lblFormula);
     }
 
     private void calcular() {

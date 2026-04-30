@@ -34,9 +34,8 @@ public final class Utils {
         return ((valorFinal - valorInicial) / valorInicial) * 100.0;
     }
 
-    public static double calcularValorOriginal(double valorComDesconto, double percentual) {
-        if (percentual >= 100) return 0;
-        return (valorComDesconto * 100.0) / (100.0 - percentual);
+    public static double calcularValorOriginal(double valorFinal, double percentual) {
+        return (valorFinal * 100.0 / (100.0 - percentual));
     }
     public static double regraDeTres(double a, double b, double r1) {
         if (a == 0) return 0;

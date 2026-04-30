@@ -1,5 +1,6 @@
 package tools;
 
+import helper.UtilsUI;
 import utils.Utils;
 
 import javax.swing.*;
@@ -18,7 +19,7 @@ public class RegraDeTresWindow extends JFrame {
 
     private RegraDeTresWindow() {
         setTitle("Regra de 3");
-        setSize(360, 250);
+        setSize(360, 300);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -74,6 +75,14 @@ public class RegraDeTresWindow extends JFrame {
         add(btnCalcular);
 
         btnCalcular.addActionListener(e -> calcular());
+
+        JLabel lblFormula = UtilsUI.criarLabelFormula(
+                " r2 = (r1 * b) /a"
+        );
+
+        lblFormula.setBounds(10, 200, 280, 40);
+
+        add(lblFormula);
     }
 
     private void calcular() {

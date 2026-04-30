@@ -1,9 +1,12 @@
 package tools;
 
 import utils.Utils;
+import helper.UtilsUI;
 
 import javax.swing.*;
 import javax.swing.text.*;
+import javax.swing.border.*;
+import java.awt.*;
 
 public class ABDescontoWindow extends JFrame {
 
@@ -17,7 +20,7 @@ public class ABDescontoWindow extends JFrame {
 
     private ABDescontoWindow() {
         setTitle("Desconto entre valores (A -> B)");
-        setSize(320, 230);
+        setSize(320, 300);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -32,7 +35,7 @@ public class ABDescontoWindow extends JFrame {
 
     private void criarComponentes() {
 
-        JLabel lblOriginal = new JLabel("Valor original:");
+        JLabel lblOriginal = new JLabel("Valor original (a):");
         lblOriginal.setBounds(10, 20, 110, 25);
         add(lblOriginal);
 
@@ -41,7 +44,7 @@ public class ABDescontoWindow extends JFrame {
         aplicarFiltroNumerico(txtOriginal);
         add(txtOriginal);
 
-        JLabel lblPago = new JLabel("Valor pago:");
+        JLabel lblPago = new JLabel("Valor pago (b):");
         lblPago.setBounds(10, 60, 110, 25);
         add(lblPago);
 
@@ -64,6 +67,14 @@ public class ABDescontoWindow extends JFrame {
         add(txtResultado);
 
         btnCalcular.addActionListener(e -> calcular());
+
+        JLabel lblFormula = UtilsUI.criarLabelFormula(
+                " v = ((a - b) / a) × 100"
+        );
+
+        lblFormula.setBounds(10, 200, 280, 40);
+
+        add(lblFormula);
     }
 
     private void calcular() {

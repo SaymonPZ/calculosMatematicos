@@ -1,5 +1,6 @@
 package tools;
 
+import helper.UtilsUI;
 import utils.Utils;
 import javax.swing.*;
 import javax.swing.text.*;
@@ -14,7 +15,7 @@ public class IncrementarPorcetagemWindow extends JFrame {
     }
     private IncrementarPorcetagemWindow() {
         setTitle("Incrementar Porcentagem");
-        setSize(320, 230);
+        setSize(320, 300);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -29,7 +30,7 @@ public class IncrementarPorcetagemWindow extends JFrame {
 
     private void criarComponentes() {
 
-        JLabel lblValor = new JLabel("Valor inicial:");
+        JLabel lblValor = new JLabel("Valor inicial (a):");
         lblValor.setBounds(10, 20, 100, 25);
         add(lblValor);
 
@@ -38,7 +39,7 @@ public class IncrementarPorcetagemWindow extends JFrame {
         aplicarFiltroNumerico(txtValor);
         add(txtValor);
 
-        JLabel lblPercentual = new JLabel("% Acréscimo:");
+        JLabel lblPercentual = new JLabel("% Acréscimo (b):");
         lblPercentual.setBounds(10, 60, 100, 25);
         add(lblPercentual);
 
@@ -61,6 +62,14 @@ public class IncrementarPorcetagemWindow extends JFrame {
         add(txtResultado);
 
         btnCalcular.addActionListener(e -> calcular());
+
+        JLabel lblFormula = UtilsUI.criarLabelFormula(
+                " v = a + (a * (b / 100.0))"
+        );
+
+        lblFormula.setBounds(10, 200, 280, 40);
+
+        add(lblFormula);
     }
 
     private void calcular() {

@@ -1,5 +1,6 @@
 package tools;
 
+import helper.UtilsUI;
 import utils.Utils;
 
 import javax.swing.*;
@@ -20,7 +21,7 @@ public class AplicarDescontoWindow extends JFrame {
     //cria a tela e chama o metodo que cria e exib os componentes
     private AplicarDescontoWindow() {
         setTitle("Aplicar Desconto");
-        setSize(320, 230);
+        setSize(320, 300);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -35,7 +36,7 @@ public class AplicarDescontoWindow extends JFrame {
 
     private void criarComponentes() {
 
-        JLabel lblValor = new JLabel("Valor inicial:");
+        JLabel lblValor = new JLabel("Valor inicial (a):");
         lblValor.setBounds(10, 20, 100, 25);
         add(lblValor);
 
@@ -44,7 +45,7 @@ public class AplicarDescontoWindow extends JFrame {
         aplicarFiltroNumerico(txtValor);
         add(txtValor);
 
-        JLabel lblPercentual = new JLabel("% Desconto:");
+        JLabel lblPercentual = new JLabel("% Desconto (b):");
         lblPercentual.setBounds(10, 60, 100, 25);
         add(lblPercentual);
 
@@ -67,6 +68,14 @@ public class AplicarDescontoWindow extends JFrame {
         add(btnCalcular);
 
         btnCalcular.addActionListener(e -> calcular());
+
+        JLabel lblFormula = UtilsUI.criarLabelFormula(
+                " v = a - (a * ( b / 100))"
+        );
+
+        lblFormula.setBounds(10, 200, 280, 40);
+
+        add(lblFormula);
     }
 
     private void calcular() {

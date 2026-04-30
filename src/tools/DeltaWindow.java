@@ -1,5 +1,6 @@
 package tools;
 
+import helper.UtilsUI;
 import utils.Utils;
 
 import javax.swing.*;
@@ -17,7 +18,7 @@ public class DeltaWindow extends JFrame {
 
     private DeltaWindow() {
         setTitle("Variação Delta (%)");
-        setSize(320, 230);
+        setSize(320, 300);
         setLayout(null);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -32,7 +33,7 @@ public class DeltaWindow extends JFrame {
 
     private void criarComponentes() {
 
-        JLabel lblInicial = new JLabel("Valor inicial:");
+        JLabel lblInicial = new JLabel("Valor inicial (a):");
         lblInicial.setBounds(10, 20, 110, 25);
         add(lblInicial);
 
@@ -41,7 +42,7 @@ public class DeltaWindow extends JFrame {
         aplicarFiltroNumerico(txtInicial);
         add(txtInicial);
 
-        JLabel lblFinal = new JLabel("Valor final:");
+        JLabel lblFinal = new JLabel("Valor final (b):");
         lblFinal.setBounds(10, 60, 110, 25);
         add(lblFinal);
 
@@ -64,6 +65,14 @@ public class DeltaWindow extends JFrame {
         add(txtResultado);
 
         btnCalcular.addActionListener(e -> calcular());
+
+        JLabel lblFormula = UtilsUI.criarLabelFormula(
+                " v = ((a - b) / a) * 100.0"
+        );
+
+        lblFormula.setBounds(10, 200, 280, 40);
+
+        add(lblFormula);
     }
 
     private void calcular() {
