@@ -1,6 +1,6 @@
 Integrantes:
 
 Alunos:
-Saymon de Espindola inacio
-Samuel Conradt do Amaral
-Alisson Gonçalves Selau
+Saymon de Espindola inacio,
+Samuel Conradt do Amaral,
+Alisson Gonçalves Selau.
